@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/BankCards/src/server/Server.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/BankCards/src/exceptions/IncorrectUserPassword.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/BankCards/src/communication/ClientServerCommunication.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/BankCards/src/exceptions/InvalidFirstNumber.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/BankCards/src/primitives/UserDatabase.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/BankCards/src/comparators/CardComparator.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/BankCards/src/exceptions/TokenNotRegistered.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/BankCards/src/exceptions/TokenRegistrationDenied.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/BankCards/src/communication/AckHandler.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/BankCards/src/exceptions/DuplicateUserName.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/BankCards/src/exceptions/CardReadingDenied.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/BankCards/src/exceptions/IncorrectUserName.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/BankCards/src/primitives/CreditCard.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/BankCards/src/primitives/User.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/BankCards/src/primitives/Token.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/BankCards/src/client/gui/InSessionFrame.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/BankCards/src/comparators/TokenComparator.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/BankCards/src/server/Session.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/BankCards/src/Main.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/BankCards/src/server/WorkerRunnable.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/BankCards/src/exceptions/InvalidCreditCardNumber.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/BankCards/src/exceptions/LoginException.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/BankCards/src/client/gui/SignFrame.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/BankCards/src/client/gui/CardRegFrame.java</file>
+            <file>file:/C:/Users/a/Documents/NetBeansProjects/BankCards/src/communication/Message.java</file>
+        </group>
+    </open-files>
+</project-private>

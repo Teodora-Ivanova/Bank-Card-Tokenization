@@ -1,0 +1,18 @@
+<linked-list>
+  <User>
+    <username>Teodora</username>
+    <password>T1234</password>
+    <tokenMap>
+      <entry>
+        <Token>
+          <token>2944779233189991</token>
+        </Token>
+        <CardId>
+          <cardId>4563960122019991</cardId>
+        </CardId>
+      </entry>
+    </tokenMap>
+    <canRegisterToken>true</canRegisterToken>
+    <canReadCardId>true</canReadCardId>
+  </User>
+</linked-list>
