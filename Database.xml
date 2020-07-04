@@ -15,4 +15,20 @@
     <canRegisterToken>true</canRegisterToken>
     <canReadCardId>true</canReadCardId>
   </User>
+  <User>
+    <username>Penka</username>
+    <password>123</password>
+    <tokenMap>
+      <entry>
+        <Token>
+          <token>9994958948610136</token>
+        </Token>
+        <CardId>
+          <cardId>4532563507350136</cardId>
+        </CardId>
+      </entry>
+    </tokenMap>
+    <canRegisterToken>true</canRegisterToken>
+    <canReadCardId>true</canReadCardId>
+  </User>
 </linked-list>
