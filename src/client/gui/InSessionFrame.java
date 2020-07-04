@@ -1,9 +1,6 @@
 package client.gui;
 
 import communication.ClientServerCommunication;
-
-import javax.swing.JOptionPane;
-
 import primitives.CreditCard;
 import primitives.Token;
 import server.Session;
@@ -24,19 +21,19 @@ public class InSessionFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblWelcome;
 
     public InSessionFrame() {
-        initComponents();
+        createComponents();
     }
 
 
-    public InSessionFrame(Session session, ClientServerCommunication communication) {
+    public InSessionFrame(Session session, ClientServerCommunication commChannel) {
         this();
         this.session = session;
-        this.communication = communication;
+        this.communication = commChannel;
         lblUser.setText(session.getUser().getUsername());
     }
 
     @SuppressWarnings("unchecked")
-    private void initComponents() {
+    private void createComponents() {
         initializeButtons();
         initializeLabels();
 
