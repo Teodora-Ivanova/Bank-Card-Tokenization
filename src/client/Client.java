@@ -9,10 +9,6 @@ public class Client {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new SignFrame().setVisible(true);
-                // comment in the method
-                // nz veche
-                // another branch
-                // neshto poveche
             }
         });
     }
