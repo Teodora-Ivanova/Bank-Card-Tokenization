@@ -20,7 +20,7 @@ public class ClientServerCommunication {
             openSocket();
             outputStream = new ObjectOutputStream(socket.getOutputStream());
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Critical error occuried.\nTerminating.",
+            JOptionPane.showMessageDialog(null, "Critical error occurred.\nTerminating.",
                     "I/O Error",
                     JOptionPane.ERROR_MESSAGE);
             System.exit(1);
@@ -44,13 +44,13 @@ public class ClientServerCommunication {
         try {
             outputStream.writeObject(new Message(obj, action));
         } catch (IOException ex) {
-            showMessage("Critical Error Occured", "Terminating",
+            showMessage("Critical Error Occurred", "Terminating",
                     JOptionPane.ERROR_MESSAGE);
             System.exit(1);
         }
     }
 
-    public Object recieveObj() {
+    public Object receiveObj() {
         try {
             inputStream = new ObjectInputStream(socket.getInputStream());
             return inputStream.readObject();
@@ -62,26 +62,11 @@ public class ClientServerCommunication {
         return null;
     }
 
-//    public CreditCard recieveCard() {
-//        Object obj = recieveObj();
-//        return (obj == null) ? null : (CreditCard) obj;
-//    }
-//    
-//    public Session recieveSession() {
-//        Object obj = recieveObj();
-//        return (obj == null) ? null : (Session) obj;
-//    }
-//    public String recieveAck() {
-//        Object obj = recieveObj();
-//        return (obj == null) ? null : (String) obj;
-//    }
     private void showMessage(String msg, String tittle, int type) {
         JOptionPane.showMessageDialog(null, msg, tittle, type);
     }
 
     public boolean handleAck(String ack, String username) throws HeadlessException {
-//        AckHandler.getAction(ack).getClientAction().run();
-
         switch (ack) {
             case "Null":
                 showMessage("No user found for the session.\nTerminating.", "Critical Error", 0);
@@ -110,13 +95,13 @@ public class ClientServerCommunication {
                         JOptionPane.ERROR_MESSAGE);
                 break;
             case "TokenRegDenied":
-                JOptionPane.showMessageDialog(null, "You dont have rights to register the card!",
+                JOptionPane.showMessageDialog(null, "You don't have rights to register the card!",
                         "Error",
                         JOptionPane.ERROR_MESSAGE);
                 break;
 
             case "CardReadDenied":
-                JOptionPane.showMessageDialog(null, "You dont have rights to export the cards!",
+                JOptionPane.showMessageDialog(null, "You don't have rights to export the cards!",
                         "Error",
                         JOptionPane.ERROR_MESSAGE);
                 break;
@@ -127,7 +112,7 @@ public class ClientServerCommunication {
                 System.exit(1);
 
             case "SuccessCardReg":
-                JOptionPane.showMessageDialog(null, "Card registred!",
+                JOptionPane.showMessageDialog(null, "Card registered!",
                         "Success",
                         JOptionPane.INFORMATION_MESSAGE);
                 return true;
@@ -139,7 +124,7 @@ public class ClientServerCommunication {
                 return true;
 
             case "Registration successfull":
-                JOptionPane.showMessageDialog(null, "Registration successfull!\n"
+                JOptionPane.showMessageDialog(null, "Registration successful!\n"
                         + "Now you can sign in.",
                         "",
                         JOptionPane.INFORMATION_MESSAGE);
@@ -148,7 +133,7 @@ public class ClientServerCommunication {
             case "Sign in success":
                 if (username != null) {
                     JOptionPane.showMessageDialog(null, "Welcome, " + username,
-                            "Access Granted",
+                            "Allowed Access",
                             JOptionPane.INFORMATION_MESSAGE);
                 }
                 return true;

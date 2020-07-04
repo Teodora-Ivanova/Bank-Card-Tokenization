@@ -42,19 +42,24 @@ public class CardRegFrame extends javax.swing.JFrame {
     }
 
     private void initializeComponents() {
-        btnRegister = new JButton();
-        btnCancel = new JButton();
+        createRegBtn();
+        createCancelBtn();
         txtCardId = new JTextField();
-
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    }
 
+    private void createRegBtn() {
+        btnRegister = new JButton();
         btnRegister.setText("Register");
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegisterActionPerformed(evt);
             }
         });
+    }
 
+    private void createCancelBtn() {
+        btnCancel = new JButton();
         btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,7 +125,7 @@ public class CardRegFrame extends javax.swing.JFrame {
         if (isSuccessful) {
             communication.sendMessage(cardId, "Register Card");
 
-            Token token = (Token) communication.recieveObj();
+            Token token = (Token) communication.receiveObj();
             JOptionPane.showMessageDialog(null, "Card registered, token is: " + token,
                     "Success!", JOptionPane.INFORMATION_MESSAGE);
 

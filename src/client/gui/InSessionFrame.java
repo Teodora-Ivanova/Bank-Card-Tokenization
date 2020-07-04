@@ -104,46 +104,60 @@ public class InSessionFrame extends javax.swing.JFrame {
     }
 
     private void initializeButtons() {
-        btnRegCard = new JButton();
-        btnExportCreditCards = new JButton();
-        btnExportTokens = new JButton();
-        btnLogout = new JButton();
-        btnGetCard = new JButton();
-
+        createRegCardBtn();
+        createExportTokensBtn();
+        createExportCardsBtn();
+        createGetCardNumberBtn();
+        createLogOutBtn();
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    }
 
+    private void createRegCardBtn() {
+        btnRegCard = new JButton();
         btnRegCard.setText("Register Card");
         btnRegCard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegCardActionPerformed(evt);
             }
         });
+    }
 
-        btnExportCreditCards.setText("Export Credit Cards");
-        btnExportCreditCards.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExportCreditCardsActionPerformed(evt);
-            }
-        });
-
+    private void createExportTokensBtn() {
+        btnExportTokens = new JButton();
         btnExportTokens.setText("Export Tokens");
         btnExportTokens.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExportTokensActionPerformed(evt);
             }
         });
+    }
 
-        btnLogout.setText("Logout");
-        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+    private void createExportCardsBtn() {
+        btnExportCreditCards = new JButton();
+        btnExportCreditCards.setText("Export Credit Cards");
+        btnExportCreditCards.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLogoutActionPerformed(evt);
+                btnExportCreditCardsActionPerformed(evt);
             }
         });
+    }
 
+    private void createGetCardNumberBtn() {
+        btnGetCard = new JButton();
         btnGetCard.setText("Get credit card number");
         btnGetCard.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGetCardActionPerformed(evt);
+            }
+        });
+    }
+
+    private void createLogOutBtn() {
+        btnLogout = new JButton();
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
             }
         });
     }
@@ -175,13 +189,13 @@ public class InSessionFrame extends javax.swing.JFrame {
 
     private void btnExportTokensActionPerformed(java.awt.event.ActionEvent evt) {
         communication.sendMessage(session, "Export Tokens");
-        String ack = (String) communication.recieveObj();
+        String ack = (String) communication.receiveObj();
         communication.handleAck(ack);
     }
 
     private void btnExportCreditCardsActionPerformed(java.awt.event.ActionEvent evt) {
         communication.sendMessage(session, "Export Credit Card");
-        String ack = (String) communication.recieveObj();
+        String ack = (String) communication.receiveObj();
         communication.handleAck(ack);
     }
 
@@ -189,10 +203,10 @@ public class InSessionFrame extends javax.swing.JFrame {
         //boolean success;
         String token = JOptionPane.showInputDialog(null, "Enter the token: ");
         communication.sendMessage(new Token(token), "Get card");
-        String ack = (String) communication.recieveObj();
+        String ack = (String) communication.receiveObj();
 
         if (communication.handleAck(ack)) {
-            CreditCard card = (CreditCard) communication.recieveObj();
+            CreditCard card = (CreditCard) communication.receiveObj();
             JOptionPane.showMessageDialog(null, "The card is: " + card);
         }
     }

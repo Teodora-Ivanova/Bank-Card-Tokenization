@@ -144,11 +144,11 @@ public class SignFrame extends javax.swing.JFrame {
 
         boolean isSuccessful;
         commChannel.sendMessage(new User(username, password), "signIn");
-        isSuccessful = commChannel.handleAck((String) commChannel.recieveObj(), username);
+        isSuccessful = commChannel.handleAck((String) commChannel.receiveObj(), username);
 
         if (isSuccessful) {
             dispose();
-            session = (Session) commChannel.recieveObj();
+            session = (Session) commChannel.receiveObj();
             InSessionFrame inSession = new InSessionFrame(session, commChannel);
             inSession.setVisible(true);
         }
@@ -160,7 +160,7 @@ public class SignFrame extends javax.swing.JFrame {
 
         User newUser = new User(name, password);
         commChannel.sendMessage(newUser, "signUp");
-        commChannel.handleAck((String) commChannel.recieveObj(), null);
+        commChannel.handleAck((String) commChannel.receiveObj(), null);
     }
 
     public static void main(String args[]) {

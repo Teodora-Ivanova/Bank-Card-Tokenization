@@ -71,4 +71,18 @@
     <canRegisterToken>false</canRegisterToken>
     <canReadCardId>false</canReadCardId>
   </User>
+  <User>
+    <username>John</username>
+    <password>963</password>
+    <tokenMap/>
+    <canRegisterToken>false</canRegisterToken>
+    <canReadCardId>false</canReadCardId>
+  </User>
+  <User>
+    <username>Marta</username>
+    <password>12345678</password>
+    <tokenMap/>
+    <canRegisterToken>false</canRegisterToken>
+    <canReadCardId>false</canReadCardId>
+  </User>
 </linked-list>
