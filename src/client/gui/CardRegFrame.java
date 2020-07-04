@@ -3,9 +3,7 @@ package client.gui;
 import communication.ClientServerCommunication;
 import exceptions.InvalidCreditCardNumber;
 import exceptions.InvalidFirstNumber;
-
 import javax.swing.*;
-
 import primitives.CreditCard;
 import primitives.Token;
 import server.Session;
@@ -15,9 +13,9 @@ public class CardRegFrame extends javax.swing.JFrame {
     private Session session;
     private ClientServerCommunication communication;
 
-    private javax.swing.JButton btnCancel;
-    private javax.swing.JButton btnRegister;
-    private javax.swing.JTextField txtCardId;
+    private JButton btnCancel;
+    private JButton btnRegister;
+    private JTextField txtCardId;
 
     public CardRegFrame() {
         createComponents();
@@ -43,12 +41,12 @@ public class CardRegFrame extends javax.swing.JFrame {
         pack();
     }
 
-    private void initializeComponents(){
-        btnRegister = new javax.swing.JButton();
-        btnCancel = new javax.swing.JButton();
-        txtCardId = new javax.swing.JTextField();
+    private void initializeComponents() {
+        btnRegister = new JButton();
+        btnCancel = new JButton();
+        txtCardId = new JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         btnRegister.setText("Register");
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
@@ -65,7 +63,7 @@ public class CardRegFrame extends javax.swing.JFrame {
         });
     }
 
-    private GroupLayout createLayout(){
+    private GroupLayout createLayout() {
         return new GroupLayout(getContentPane());
     }
 
@@ -104,10 +102,10 @@ public class CardRegFrame extends javax.swing.JFrame {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {
         String cardIdInput = txtCardId.getText();
-        boolean isSuccessfull = false;
+        boolean isSuccessful = false;
         try {
             cardId = new CreditCard(cardIdInput);
-            isSuccessfull = true;
+            isSuccessful = true;
         } catch (InvalidFirstNumber ex) {
             JOptionPane.showMessageDialog(null,
                     "Invalid credit card number!\n" + "The first number must start with 3,4,5 or 6",
@@ -119,11 +117,11 @@ public class CardRegFrame extends javax.swing.JFrame {
                     JOptionPane.ERROR_MESSAGE);
         }
 
-        if (isSuccessfull) {
+        if (isSuccessful) {
             communication.sendMessage(cardId, "Register Card");
 
             Token token = (Token) communication.recieveObj();
-            JOptionPane.showMessageDialog(null, "Card registred, token is: " + token,
+            JOptionPane.showMessageDialog(null, "Card registered, token is: " + token,
                     "Success!", JOptionPane.INFORMATION_MESSAGE);
 
             dispose();
@@ -132,9 +130,9 @@ public class CardRegFrame extends javax.swing.JFrame {
 
     public static void main(String args[]) {
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            for (javax.swing.UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
