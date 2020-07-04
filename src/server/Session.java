@@ -26,13 +26,6 @@ public class Session implements Serializable {
     private User user;
     transient private UserDatabase db = new UserDatabase();
 
-    /**
-     *
-     * @param userToLog
-     * @throws IncorrectUserPassword
-     * @throws IncorrectUserName
-     * @throws LoginException
-     */
     public Session(User userToLog)
             throws IncorrectUserPassword, IncorrectUserName, LoginException {
         if (userToLog == null) {
@@ -42,12 +35,6 @@ public class Session implements Serializable {
         }
     }
 
-    /**
-     *
-     * @param userToLog
-     * @throws IncorrectUserPassword
-     * @throws IncorrectUserName
-     */
     public void logIn(User userToLog)
             throws IncorrectUserPassword, IncorrectUserName {
 
@@ -68,12 +55,7 @@ public class Session implements Serializable {
         }
     }
 
-    /**
-     *
-     * @param cardId
-     * @return
-     * @throws TokenRegistrationDenied
-     */
+
     public Token registerCard(CreditCard cardId)
             throws TokenRegistrationDenied {
 
@@ -94,14 +76,6 @@ public class Session implements Serializable {
         }
     }
 
-    /**
-     *
-     * @param comparator
-     * @param txtFile
-     * @throws IOException
-     * @throws CardReadingDenied
-     * @throws TokenNotRegistered
-     */
     public void exportSorted(Comparator comparator, File txtFile)
             throws IOException, CardReadingDenied, TokenNotRegistered {
 
@@ -127,13 +101,6 @@ public class Session implements Serializable {
 
     }
 
-    /**
-     *
-     * @param token
-     * @return
-     * @throws CardReadingDenied
-     * @throws TokenNotRegistered
-     */
     public CreditCard getCardId(Token token)
             throws CardReadingDenied, TokenNotRegistered {
         if (user.canReadCardId()) {
@@ -157,17 +124,10 @@ public class Session implements Serializable {
         }
     }
 
-    /**
-     *
-     * @return
-     */
     public User getUser() {
         return user;
     }
 
-    /**
-     *
-     */
     public void close() {
         user.setCanReadCardId(false);
         user.setCanRegisterToken(false);

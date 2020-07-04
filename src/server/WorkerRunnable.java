@@ -22,10 +22,7 @@ public class WorkerRunnable implements Runnable {
     private UserDatabase db = new UserDatabase();
     private Session session;
 
-    /**
-     *
-     * @param clientSocket
-     */
+
     public WorkerRunnable(Socket clientSocket) {
         try {
             inputStream = new ObjectInputStream(clientSocket.getInputStream());

@@ -27,17 +27,11 @@ public class UserDatabase implements Serializable {
         }
     }
 
-    /**
-     *
-     * @return
-     */
     public List<User> deserialize() {
         return (List<User>) xstream.fromXML(xmlFile);
     }
 
-    /**
-     *
-     */
+
     public UserDatabase() {
 
         xstream.alias("User", User.class);
@@ -49,12 +43,6 @@ public class UserDatabase implements Serializable {
         }
     }
 
-    /**
-     *
-     * @param userToAdd
-     * @throws IOException
-     * @throws DuplicateUserName
-     */
     public void add(User userToAdd) throws IOException, DuplicateUserName {
 
         users = deserialize();
@@ -75,14 +63,6 @@ public class UserDatabase implements Serializable {
     @param name The unique name of the user.
     */
 
-    /**
-     *
-     * @param name
-     * @return
-     * @throws IncorrectUserName
-     */
-    
-    
     public User getUserByName(String name) throws IncorrectUserName {
         users = deserialize();
         for (User user : users) {
@@ -93,10 +73,6 @@ public class UserDatabase implements Serializable {
         throw new IncorrectUserName();
     }
 
-    /**
-     *
-     * @param user
-     */
     public void updateDatabase(User user) {
         users = deserialize();
         

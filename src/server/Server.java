@@ -6,25 +6,14 @@ import java.io.IOException;
 
 public class Server implements Runnable {
 
-    /**
-     * The port on which the server would listen.
-     */
+
     protected int serverPort = 8080;
 
-    /**
-     * The server socket which the server would receive.
-     */
+
     protected ServerSocket serverSocket = null;
 
-    /**
-     *
-     */
     protected boolean isStopped = false;
 
-    /**
-     *
-     * @param port
-     */
     public Server(int port) {
         this.serverPort = port;
     }
@@ -54,10 +43,7 @@ public class Server implements Runnable {
         }
     }
 
-    /**
-     *
-     * @param args
-     */
+
     public static void main(String[] args) {
         new Thread(new Server(8080)).start();
     }

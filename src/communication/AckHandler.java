@@ -8,9 +8,6 @@ public class AckHandler {
     /*TODO: <String, Runnable>*/
     static HashMap<String, Actions> map = new HashMap<>();
 
-    /**
-     *
-     */
     public AckHandler() {
         initialize();
     }
@@ -35,7 +32,7 @@ public class AckHandler {
         return map.get(msg);
     }
 
-    /*TODO: Not usefull. Delete it.*/
+
     class Actions {
 
         private Runnable serverAction;

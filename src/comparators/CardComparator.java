@@ -9,10 +9,7 @@ public class CardComparator implements Comparator<Token> {
 
     Map<Token, CreditCard> base;
 
-    /**
-     *
-     * @param base
-     */
+
     public CardComparator(Map<Token, CreditCard> base) {
         this.base = base;
     }

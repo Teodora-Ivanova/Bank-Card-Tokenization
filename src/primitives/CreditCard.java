@@ -9,11 +9,7 @@ public class CreditCard implements Comparable<CreditCard>, Serializable {
 
     private String cardId;
 
-    /**
-     *
-     * @param cardId
-     * @throws InvalidCreditCardNumber
-     */
+
     public CreditCard(String cardId) throws InvalidCreditCardNumber {
         setCardId(cardId);
     }
@@ -66,10 +62,7 @@ public class CreditCard implements Comparable<CreditCard>, Serializable {
         }
     }
 
-    /**
-     *
-     * @return
-     */
+
     public Token tokenize() {
         final int length = cardId.length();
         int[] cardIdArr = parse(cardId);
