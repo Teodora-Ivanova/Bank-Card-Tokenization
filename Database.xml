@@ -21,6 +21,14 @@
     <tokenMap>
       <entry>
         <Token>
+          <token>9514622028912422</token>
+        </Token>
+        <CardId>
+          <cardId>5356265915242422</cardId>
+        </CardId>
+      </entry>
+      <entry>
+        <Token>
           <token>9994958948610136</token>
         </Token>
         <CardId>
@@ -28,7 +36,7 @@
         </CardId>
       </entry>
     </tokenMap>
-    <canRegisterToken>true</canRegisterToken>
-    <canReadCardId>true</canReadCardId>
+    <canRegisterToken>false</canRegisterToken>
+    <canReadCardId>false</canReadCardId>
   </User>
 </linked-list>
