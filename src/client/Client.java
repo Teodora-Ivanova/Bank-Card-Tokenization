@@ -9,6 +9,7 @@ public class Client {
             public void run() {
                 new SignFrame().setVisible(true);
                 // comment in the method
+                // nz veche
             }
         });
     }
