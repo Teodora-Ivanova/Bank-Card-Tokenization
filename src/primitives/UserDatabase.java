@@ -3,7 +3,7 @@ package primitives;
 import com.thoughtworks.xstream.XStream;
 import exceptions.DuplicateUserName;
 import java.io.File;
-import exceptions.IncorrectUserName;
+import exceptions.IncorrectUsername;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Serializable;
@@ -63,14 +63,14 @@ public class UserDatabase implements Serializable {
     @param name The unique name of the user.
     */
 
-    public User getUserByName(String name) throws IncorrectUserName {
+    public User getUserByName(String name) throws IncorrectUsername {
         users = deserialize();
         for (User user : users) {
             if (user.getUsername().equals(name)) {
                 return new User(user);
             }
         }
-        throw new IncorrectUserName();
+        throw new IncorrectUsername();
     }
 
     public void updateDatabase(User user) {

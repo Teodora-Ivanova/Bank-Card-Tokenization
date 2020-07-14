@@ -6,7 +6,7 @@ import primitives.CreditCard;
 import primitives.User;
 import exceptions.IncorrectUserPassword;
 import exceptions.TokenRegistrationDenied;
-import exceptions.IncorrectUserName;
+import exceptions.IncorrectUsername;
 import exceptions.LoginException;
 import exceptions.TokenNotRegistered;
 import java.io.BufferedWriter;
@@ -27,7 +27,7 @@ public class Session implements Serializable {
     transient private UserDatabase db = new UserDatabase();
 
     public Session(User userToLog)
-            throws IncorrectUserPassword, IncorrectUserName, LoginException {
+            throws IncorrectUserPassword, IncorrectUsername, LoginException {
         if (userToLog == null) {
             throw new LoginException();
         } else {
@@ -36,7 +36,7 @@ public class Session implements Serializable {
     }
 
     public void logIn(User userToLog)
-            throws IncorrectUserPassword, IncorrectUserName {
+            throws IncorrectUserPassword, IncorrectUsername {
 
         User registredUser = db.getUserByName(userToLog.getUsername());
 

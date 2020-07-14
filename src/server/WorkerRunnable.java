@@ -106,7 +106,7 @@ public class WorkerRunnable implements Runnable {
             sendAck("Duplicate");
         } catch (IncorrectUserPassword ex) {
             sendAck("Incorrect password");
-        } catch (IncorrectUserName ex) {
+        } catch (IncorrectUsername ex) {
             sendAck("Incorrect username");
         } catch (TokenNotRegistered ex) {
             sendAck("TokenNotReg");
