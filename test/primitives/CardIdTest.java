@@ -8,8 +8,8 @@ public class CardIdTest {
     }
 
     @Test
-    public void testPlentyOfCards() throws Exception {
-        System.out.println("Are the cards numbers valid?");
+    public void validateFirstDigitOfCardNumber() throws Exception {
+        System.out.println("Valid Credit Cards Numbers");
 
         CreditCard firstCard = new CreditCard("378282246310005");
         CreditCard secondCard = new CreditCard("4111111111111111");

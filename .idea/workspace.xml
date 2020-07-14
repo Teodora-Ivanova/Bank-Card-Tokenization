@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2f6125f3-ef4e-45c3-b9e6-670cce86417d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/comparators/CardComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/comparators/CardComparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/comparators/TokenComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/comparators/TokenComparator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/primitives/CardIdTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/primitives/CardIdTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -131,7 +131,7 @@
       <workItem from="1593857658246" duration="37000" />
       <workItem from="1593894039194" duration="280000" />
       <workItem from="1594111153181" duration="74000" />
-      <workItem from="1594743366902" duration="6946000" />
+      <workItem from="1594743366902" duration="7997000" />
     </task>
     <servers />
   </component>
