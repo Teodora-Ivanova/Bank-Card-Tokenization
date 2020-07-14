@@ -189,13 +189,13 @@ public class InSessionFrame extends javax.swing.JFrame {
 
     private void btnExportTokensActionPerformed(java.awt.event.ActionEvent evt) {
         communication.sendMessage(session, "Export Tokens");
-        String ack = (String) communication.receiveObj();
+        String ack = (String) communication.receiveObject();
         communication.handleAck(ack);
     }
 
     private void btnExportCreditCardsActionPerformed(java.awt.event.ActionEvent evt) {
         communication.sendMessage(session, "Export Credit Card");
-        String ack = (String) communication.receiveObj();
+        String ack = (String) communication.receiveObject();
         communication.handleAck(ack);
     }
 
@@ -203,10 +203,10 @@ public class InSessionFrame extends javax.swing.JFrame {
         //boolean success;
         String token = JOptionPane.showInputDialog(null, "Enter the token: ");
         communication.sendMessage(new Token(token), "Get card");
-        String ack = (String) communication.receiveObj();
+        String ack = (String) communication.receiveObject();
 
         if (communication.handleAck(ack)) {
-            CreditCard card = (CreditCard) communication.receiveObj();
+            CreditCard card = (CreditCard) communication.receiveObject();
             JOptionPane.showMessageDialog(null, "The card is: " + card);
         }
     }
