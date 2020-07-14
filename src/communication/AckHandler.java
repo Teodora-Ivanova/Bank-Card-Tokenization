@@ -4,8 +4,6 @@ import java.util.HashMap;
 import javax.swing.JOptionPane;
 
 public class AckHandler {
-
-    /*TODO: <String, Runnable>*/
     static HashMap<String, Actions> map = new HashMap<>();
 
     public AckHandler() {
@@ -34,7 +32,6 @@ public class AckHandler {
 
 
     class Actions {
-
         private Runnable serverAction;
         private Runnable clientAction;
 
@@ -50,6 +47,5 @@ public class AckHandler {
         public Runnable getClientAction() {
             return clientAction;
         }
-
     }
 }
