@@ -129,7 +129,7 @@ public class ClientServerCommunication {
                             JOptionPane.INFORMATION_MESSAGE);
                 }
                 return true;
-                
+
             case "Success":
                 return true;
         }
@@ -140,7 +140,7 @@ public class ClientServerCommunication {
         JOptionPane.showMessageDialog(null, message, title, type);
     }
 
-    public void close() {
+    public void closeSocket() {
         try {
             outputStream.close();
             inputStream.close();
