@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f6125f3-ef4e-45c3-b9e6-670cce86417d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exceptions/IncorrectUserName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/IncorrectUsername.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/UserDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/UserDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/WorkerRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/WorkerRunnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exceptions/LoginException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/LoginException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exceptions/TokenNotRegistered.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/TokenNotRegistered.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exceptions/TokenRegistrationDenied.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/TokenRegistrationDenied.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -141,7 +139,7 @@
       <workItem from="1593857658246" duration="37000" />
       <workItem from="1593894039194" duration="280000" />
       <workItem from="1594111153181" duration="74000" />
-      <workItem from="1594743366902" duration="8517000" />
+      <workItem from="1594743366902" duration="8823000" />
     </task>
     <servers />
   </component>

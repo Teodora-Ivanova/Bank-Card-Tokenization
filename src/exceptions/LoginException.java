@@ -1,19 +1,10 @@
 package exceptions;
 
-public class LoginException extends Exception{
-
-    /**
-     *
-     */
+public class LoginException extends Exception {
     public LoginException() {
     }
 
-    /**
-     *
-     * @param message
-     */
     public LoginException(String message) {
         super(message);
     }
-    
 }
