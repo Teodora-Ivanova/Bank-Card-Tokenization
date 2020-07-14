@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f6125f3-ef4e-45c3-b9e6-670cce86417d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/communication/AckHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/communication/AckHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/comparators/CardComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/comparators/CardComparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/primitives/CardIdTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/primitives/CardIdTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,25 +42,28 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Client">
+    <configuration name="CardIdTest.testPlentyOfCards" type="AndroidJUnit" temporary="true" nameIsGenerated="true">
+      <module name="Bank-card-tokenization-master" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="primitives.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="primitives" />
+      <option name="MAIN_CLASS_NAME" value="primitives.CardIdTest" />
+      <option name="METHOD_NAME" value="testPlentyOfCards" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client.Client" />
       <module name="Bank-card-tokenization-master" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="client.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="InSessionFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="client.gui.InSessionFrame" />
-      <module name="Bank-card-tokenization-master" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="client.gui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -88,15 +91,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SignFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="client.gui.SignFrame" />
+    <configuration name="CardIdTest.testPlentyOfCards" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Bank-card-tokenization-master" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="client.gui.*" />
+          <option name="PATTERN" value="primitives.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="primitives" />
+      <option name="MAIN_CLASS_NAME" value="primitives.CardIdTest" />
+      <option name="METHOD_NAME" value="testPlentyOfCards" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -105,9 +111,9 @@
       <list>
         <item itemvalue="Application.Client" />
         <item itemvalue="Application.Server" />
+        <item itemvalue="JUnit.CardIdTest.testPlentyOfCards" />
+        <item itemvalue="Android JUnit.CardIdTest.testPlentyOfCards" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Application.InSessionFrame" />
-        <item itemvalue="Application.SignFrame" />
       </list>
     </recent_temporary>
   </component>
@@ -125,7 +131,7 @@
       <workItem from="1593857658246" duration="37000" />
       <workItem from="1593894039194" duration="280000" />
       <workItem from="1594111153181" duration="74000" />
-      <workItem from="1594743366902" duration="595000" />
+      <workItem from="1594743366902" duration="6946000" />
     </task>
     <servers />
   </component>
