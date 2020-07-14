@@ -3,7 +3,6 @@ package communication;
 import java.io.Serializable;
 
 public class Message implements Serializable {
-
     private Object obj;
     private String action;
 
@@ -22,7 +21,6 @@ public class Message implements Serializable {
 
     @Override
     public String toString() {
-        return "Message{" + "obj=" + obj + ", action=" + action + '}';
+        return "Message { " + "object= " + obj + ", action= " + action + " }";
     }
-
 }
