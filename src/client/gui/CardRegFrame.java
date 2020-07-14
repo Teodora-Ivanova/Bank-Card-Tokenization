@@ -125,7 +125,7 @@ public class CardRegFrame extends javax.swing.JFrame {
         if (isSuccessful) {
             communication.sendMessage(cardId, "Register Card");
 
-            Token token = (Token) communication.receiveObj();
+            Token token = (Token) communication.receiveObject();
             JOptionPane.showMessageDialog(null, "Card registered, token is: " + token,
                     "Success!", JOptionPane.INFORMATION_MESSAGE);
 
