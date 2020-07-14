@@ -8,21 +8,17 @@ import java.net.Socket;
 import javax.swing.JOptionPane;
 
 public class ClientServerCommunication {
-
     private Socket socket;
     private final int PORT = 8080;
     private ObjectOutputStream outputStream;
     private ObjectInputStream inputStream;
 
-    
     public ClientServerCommunication() {
         try {
             openSocket();
             outputStream = new ObjectOutputStream(socket.getOutputStream());
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Critical error occurred.\nTerminating.",
-                    "I/O Error",
-                    JOptionPane.ERROR_MESSAGE);
+            showMessage("Critical error occurred.\nTerminating.", "I/O Error", JOptionPane.ERROR_MESSAGE);
             System.exit(1);
         }
     }
@@ -31,12 +27,8 @@ public class ClientServerCommunication {
         try {
             socket = new Socket((String) null, PORT);
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "No server with port "
-                    + PORT + " was found!\nTerminating...",
-                    "Server not found",
-                    JOptionPane.ERROR_MESSAGE);
+            showMessage("No server with port " + PORT + " was found!\nTerminating...", "Server not found", JOptionPane.ERROR_MESSAGE);
             System.exit(1);
-
         }
     }
 
@@ -44,13 +36,12 @@ public class ClientServerCommunication {
         try {
             outputStream.writeObject(new Message(obj, action));
         } catch (IOException ex) {
-            showMessage("Critical Error Occurred", "Terminating",
-                    JOptionPane.ERROR_MESSAGE);
+            showMessage("Critical Error Occurred", "Terminating", JOptionPane.ERROR_MESSAGE);
             System.exit(1);
         }
     }
 
-    public Object receiveObj() {
+    public Object receiveObject() {
         try {
             inputStream = new ObjectInputStream(socket.getInputStream());
             return inputStream.readObject();
@@ -62,29 +53,31 @@ public class ClientServerCommunication {
         return null;
     }
 
-    private void showMessage(String msg, String tittle, int type) {
-        JOptionPane.showMessageDialog(null, msg, tittle, type);
+    public boolean handleAck(String ack) {
+        return handleAck(ack, null);
     }
 
     public boolean handleAck(String ack, String username) throws HeadlessException {
         switch (ack) {
             case "Null":
-                showMessage("No user found for the session.\nTerminating.", "Critical Error", 0);
+                showMessage("No user found for the session.\nTerminating.",
+                        "Critical Error", 0);
                 System.exit(2);
 
             case "Incorrect password":
-                showMessage("Incorrect Password!", "Log in failed", JOptionPane.ERROR_MESSAGE);
+                showMessage("Incorrect Password!",
+                        "Log in failed",
+                        JOptionPane.ERROR_MESSAGE);
                 break;
 
             case "Incorrect username":
-                showMessage("No user with name \"" + username + "\" was found!\n"
-                        + "(Sign Up first)",
+                showMessage("No user with name \"" + username + "\" was found!\n" + "(Sign Up first)",
                         "Log in failed",
                         JOptionPane.ERROR_MESSAGE);
                 break;
 
             case "Duplicate":
-                JOptionPane.showMessageDialog(null, "This username is already taken!",
+                showMessage("This username is already taken!",
                         "Log in failed",
                         JOptionPane.ERROR_MESSAGE);
                 break;
@@ -95,56 +88,56 @@ public class ClientServerCommunication {
                         JOptionPane.ERROR_MESSAGE);
                 break;
             case "TokenRegDenied":
-                JOptionPane.showMessageDialog(null, "You don't have rights to register the card!",
+                showMessage("You don't have rights to register the card!",
                         "Error",
                         JOptionPane.ERROR_MESSAGE);
                 break;
 
             case "CardReadDenied":
-                JOptionPane.showMessageDialog(null, "You don't have rights to export the cards!",
+                showMessage("You don't have rights to export the cards!",
                         "Error",
                         JOptionPane.ERROR_MESSAGE);
                 break;
             case "LoginExc":
-                JOptionPane.showMessageDialog(null, "Fatal login exception occurred.\nTerminating",
+                showMessage("Fatal login exception occurred.\nTerminating",
                         "Error",
                         JOptionPane.ERROR_MESSAGE);
                 System.exit(1);
 
             case "SuccessCardReg":
-                JOptionPane.showMessageDialog(null, "Card registered!",
+                showMessage("Card registered!",
                         "Success",
                         JOptionPane.INFORMATION_MESSAGE);
                 return true;
 
             case "Export Completed":
-                JOptionPane.showMessageDialog(null, "Export completed!",
+                showMessage("Export completed!",
                         "Success",
                         JOptionPane.INFORMATION_MESSAGE);
                 return true;
 
             case "Registration successfull":
-                JOptionPane.showMessageDialog(null, "Registration successful!\n"
-                        + "Now you can sign in.",
+                showMessage("Registration successful!\n" + "Now you can sign in.",
                         "",
                         JOptionPane.INFORMATION_MESSAGE);
                 return true;
 
             case "Sign in success":
                 if (username != null) {
-                    JOptionPane.showMessageDialog(null, "Welcome, " + username,
+                    showMessage("Welcome, " + username,
                             "Allowed Access",
                             JOptionPane.INFORMATION_MESSAGE);
                 }
                 return true;
+                
             case "Success":
                 return true;
         }
         return false;
     }
-    
-    public boolean handleAck(String ack) {
-        return handleAck(ack, null);
+
+    private void showMessage(String message, String title, int type) {
+        JOptionPane.showMessageDialog(null, message, title, type);
     }
 
     public void close() {
