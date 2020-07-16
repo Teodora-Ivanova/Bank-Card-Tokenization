@@ -1,5 +1,7 @@
 package primitives;
 
+import exceptions.IncorrectUserPassword;
+import exceptions.InvalidPassword;
 import exceptions.InvalidUsername;
 import exceptions.SignUpDenied;
 
@@ -31,12 +33,12 @@ public class User implements Serializable {
         return canReadCardId;
     }
 
-    public User(String username, String password) throws SignUpDenied, InvalidUsername {
+    public User(String username, String password) throws SignUpDenied, InvalidUsername, IncorrectUserPassword {
         setData(username,password);
 
     }
 
-    private void setData(String username, String password)throws SignUpDenied, InvalidUsername {
+    private void setData(String username, String password) throws SignUpDenied, InvalidUsername, IncorrectUserPassword {
         if(username.isEmpty()){
             throw new SignUpDenied();
         }
@@ -45,9 +47,11 @@ public class User implements Serializable {
             throw new SignUpDenied();
 
         }
-            //number.matches("^[3-6].* $");
         if(!isUsernameRelevant(username)){
             throw  new InvalidUsername();
+        }
+        if(!isPasswordRelevant(password)){
+            throw  new IncorrectUserPassword();
         }
         this.username = username;
         this.password = password;
@@ -56,9 +60,12 @@ public class User implements Serializable {
     private boolean isUsernameRelevant(String username) {
         return username.matches("^[a-zA-Z0-9]+$");
     }
+    private boolean isPasswordRelevant(String password) {
+        return username.matches("^[a-zA-Z0-9]+$");
+    }
 
 
-    public User(User user) throws SignUpDenied, InvalidUsername {
+    public User(User user) throws SignUpDenied, InvalidUsername, IncorrectUserPassword {
         this(user.getUsername(), user.getPassword());
         this.tokenMap = user.getTokenMap();
         this.canReadCardId = user.canReadCardId();

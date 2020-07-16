@@ -111,11 +111,7 @@ public class CardRegFrame extends javax.swing.JFrame {
         try {
             cardId = new CreditCard(cardIdInput);
             isSuccessful = true;
-        } catch (InvalidFirstNumber ex) {
-            JOptionPane.showMessageDialog(null,
-                    "Invalid credit card number!\n" + "The first number must start with 3,4,5 or 6",
-                    "Error", JOptionPane.WARNING_MESSAGE);
-        } catch (InvalidCreditCardNumber ex) {
+        } catch (InvalidCreditCardNumber | InvalidFirstNumber ex) {
             JOptionPane.showMessageDialog(null,
                     "Invalid credit card number!",
                     "Error",

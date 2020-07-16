@@ -53,7 +53,7 @@ public class Session implements Serializable {
 
 
     public Token registerCard(CreditCard cardId)
-            throws TokenRegistrationDenied, SignUpDenied, InvalidUsername {
+            throws TokenRegistrationDenied, SignUpDenied, InvalidUsername, IncorrectUserPassword {
 
         Token token;
         System.out.println("Registering the card");
@@ -124,7 +124,7 @@ public class Session implements Serializable {
         return user;
     }
 
-    public void close() throws SignUpDenied, InvalidUsername {
+    public void close() throws SignUpDenied, InvalidUsername, IncorrectUserPassword {
         user.setCanReadCardId(false);
         user.setCanRegisterToken(false);
         new UserDatabase().updateDatabase(user);

@@ -105,12 +105,14 @@ public class WorkerRunnable implements Runnable {
             sendAck("EmptyUserInfo");
         } catch (InvalidUsername invalidUsername) {
             sendAck("invalidUsername");
+        }catch (InvalidPassword invalidPassword) {
+            sendAck("invalidPassword");
         }
 
 
     }
 
-    private void closeSession() throws SignUpDenied, InvalidUsername {
+    private void closeSession() throws SignUpDenied, InvalidUsername, IncorrectUserPassword {
         System.out.println("Closing session");
         session.close();
         System.out.println("Session closed");
@@ -135,7 +137,7 @@ public class WorkerRunnable implements Runnable {
         return card;
     }
 
-    private void userRegisterCard(CreditCard obj) throws TokenRegistrationDenied, SignUpDenied, InvalidUsername {
+    private void userRegisterCard(CreditCard obj) throws Exception {
         Token token;
         token = session.registerCard(obj);
         sendObject(token);

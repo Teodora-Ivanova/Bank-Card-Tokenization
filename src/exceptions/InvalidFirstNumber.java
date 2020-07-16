@@ -1,6 +1,6 @@
 package exceptions;
 
-public class InvalidFirstNumber extends InvalidCreditCardNumber{
+public class InvalidFirstNumber extends Exception{
     public InvalidFirstNumber() {
     }
 

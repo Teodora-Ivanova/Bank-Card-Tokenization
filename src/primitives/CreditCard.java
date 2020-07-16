@@ -8,7 +8,7 @@ import java.util.Random;
 public class CreditCard implements Comparable<CreditCard>, Serializable {
     private String cardId;
 
-    public CreditCard(String cardId) throws InvalidCreditCardNumber {
+    public CreditCard(String cardId) throws InvalidCreditCardNumber, InvalidFirstNumber {
         setCardId(cardId);
     }
 
@@ -49,7 +49,7 @@ public class CreditCard implements Comparable<CreditCard>, Serializable {
 
 
     private void setCardId(String cardId)
-            throws InvalidCreditCardNumber {
+            throws InvalidCreditCardNumber, InvalidFirstNumber {
         if (isFirstNumberValid(cardId)) {
             if (isLuhnValid(cardId)) {
                 this.cardId = cardId;

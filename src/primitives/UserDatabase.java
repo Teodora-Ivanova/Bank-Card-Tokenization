@@ -1,11 +1,9 @@
 package primitives;
 
 import com.thoughtworks.xstream.XStream;
-import exceptions.DuplicateUserName;
+import exceptions.*;
+
 import java.io.File;
-import exceptions.IncorrectUsername;
-import exceptions.InvalidUsername;
-import exceptions.SignUpDenied;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -62,7 +60,7 @@ public class UserDatabase implements Serializable {
     }
 
 
-    public User getUserByName(String name) throws IncorrectUsername, SignUpDenied, InvalidUsername {
+    public User getUserByName(String name) throws IncorrectUsername, SignUpDenied, InvalidUsername, IncorrectUserPassword {
         users = deserialize();
         for (User user : users) {
             if (user.getUsername().equals(name)) {
@@ -72,7 +70,7 @@ public class UserDatabase implements Serializable {
         throw new IncorrectUsername();
     }
 
-    public void updateDatabase(User user) throws SignUpDenied, InvalidUsername {
+    public void updateDatabase(User user) throws SignUpDenied, InvalidUsername, IncorrectUserPassword {
         users = deserialize();
         
         // find the desired user
