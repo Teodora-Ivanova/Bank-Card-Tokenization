@@ -68,13 +68,11 @@ public class CreditCard implements Comparable<CreditCard>, Serializable {
         Random r = new Random();
         int digit, randomIndex, value;
 
-        //tokenize the first digit
         do {
             digit = r.nextInt(10);
         } while (isFirstNumberValid(Integer.toString(digit)));
         token.setDigitAt(0, digit);
 
-        //tokenize from the 2nd digit to the 12th
         for (int i = 1; i < length - 4; i++) {
             do {
                 digit = r.nextInt(10);
@@ -82,12 +80,10 @@ public class CreditCard implements Comparable<CreditCard>, Serializable {
             token.setDigitAt(i, digit);
         }
 
-        //tokenize from the 12th digit to the 16th
         for (int i = cardId.length() - 4; i < length; i++) {
             token.setDigitAt(i, cardIdArr[i]);
         }
-
-        //check if the sum is div by 10
+        
         if (token.sum() % 10 == 0) {
             do {
                 randomIndex = 1 + r.nextInt(12);
