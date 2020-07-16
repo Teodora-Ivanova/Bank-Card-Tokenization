@@ -1,6 +1,7 @@
 package client.gui;
 
 import communication.ClientServerCommunication;
+import exceptions.SignUpDenied;
 import primitives.User;
 import server.Session;
 
@@ -63,14 +64,22 @@ public class SignFrame extends javax.swing.JFrame {
         btnSignIn.setText("Sign in");
         btnSignIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSignInActionPerformed(evt);
+                try {
+                    btnSignInActionPerformed(evt);
+                } catch (SignUpDenied signUpDenied) {
+                    signUpDenied.printStackTrace();
+                }
             }
         });
 
         btnSignUp.setText("Sign Up");
         btnSignUp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSignUpActionPerformed(evt);
+                try {
+                    btnSignUpActionPerformed(evt);
+                } catch (SignUpDenied signUpDenied) {
+                    signUpDenied.printStackTrace();
+                }
             }
         });
     }
@@ -138,7 +147,7 @@ public class SignFrame extends javax.swing.JFrame {
     }
 
 
-    private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) throws SignUpDenied {
         String username = txtUsername.getText();
         String password = new String(txtPassword.getPassword());
 
@@ -154,14 +163,14 @@ public class SignFrame extends javax.swing.JFrame {
         }
     }
 
-    private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {
+    private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) throws SignUpDenied {
         if(txtUsername.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Empty username", "Error sign up",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Empty username", "Error sign up",JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         if( new String(txtPassword.getPassword()).isEmpty()){
-            JOptionPane.showMessageDialog(null,"Empty password", "Error sign up",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Empty password", "Error sign up",JOptionPane.ERROR_MESSAGE);
             return;
         }
 

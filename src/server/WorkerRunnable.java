@@ -3,12 +3,14 @@ package server;
 import primitives.UserDatabase;
 import comparators.*;
 import exceptions.*;
+
 import java.io.EOFException;
 import java.io.File;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+
 import primitives.CreditCard;
 import communication.Message;
 import primitives.Token;
@@ -116,8 +118,12 @@ public class WorkerRunnable implements Runnable {
             sendAck("CardReadDenied");
         } catch (LoginException ex) {
             sendAck("LoginExc");
+        } catch (SignUpDenied signUpDenied) {
+            sendAck("EmptyUserInfo");
         }
-    }
+
+
+}
 
     private void sendAck(String ack) {
         System.out.println("Sending Ack");

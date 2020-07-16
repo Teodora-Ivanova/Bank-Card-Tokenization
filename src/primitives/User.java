@@ -1,5 +1,7 @@
 package primitives;
 
+import exceptions.SignUpDenied;
+
 import java.io.Serializable;
 import java.util.TreeMap;
 import java.util.Objects;
@@ -28,13 +30,26 @@ public class User implements Serializable {
         return canReadCardId;
     }
 
-    public User(String username, String password) {
+    public User(String username, String password) throws SignUpDenied {
+        setData(username,password);
+
+    }
+
+    private void setData(String username, String password)throws SignUpDenied{
+        if(username.isEmpty()){
+            throw new SignUpDenied();
+        }
+
+        if( password.isEmpty()){
+            throw new SignUpDenied();
+
+        }
         this.username = username;
         this.password = password;
     }
 
 
-    public User(User user) {
+    public User(User user) throws SignUpDenied {
         this(user.getUsername(), user.getPassword());
         this.tokenMap = user.getTokenMap();
         this.canReadCardId = user.canReadCardId();

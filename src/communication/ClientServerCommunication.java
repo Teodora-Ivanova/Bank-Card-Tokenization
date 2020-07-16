@@ -98,6 +98,11 @@ public class ClientServerCommunication {
                         "Error",
                         JOptionPane.ERROR_MESSAGE);
                 break;
+            case  "EmptyUserInfo":
+                showMessage("Username or password is empty",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                break;
             case "LoginExc":
                 showMessage("Fatal login exception occurred.\nTerminating",
                         "Error",

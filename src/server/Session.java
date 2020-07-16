@@ -1,14 +1,10 @@
 package server;
 
+import exceptions.*;
 import primitives.UserDatabase;
-import exceptions.CardReadingDenied;
 import primitives.CreditCard;
 import primitives.User;
-import exceptions.IncorrectUserPassword;
-import exceptions.TokenRegistrationDenied;
-import exceptions.IncorrectUsername;
-import exceptions.LoginException;
-import exceptions.TokenNotRegistered;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -27,7 +23,7 @@ public class Session implements Serializable {
     transient private UserDatabase db = new UserDatabase();
 
     public Session(User userToLog)
-            throws IncorrectUserPassword, IncorrectUsername, LoginException {
+            throws IncorrectUserPassword, IncorrectUsername, LoginException, SignUpDenied {
         if (userToLog == null) {
             throw new LoginException();
         } else {
@@ -36,7 +32,7 @@ public class Session implements Serializable {
     }
 
     public void logIn(User userToLog)
-            throws IncorrectUserPassword, IncorrectUsername {
+            throws IncorrectUserPassword, IncorrectUsername, SignUpDenied {
 
         User registredUser = db.getUserByName(userToLog.getUsername());
 
@@ -57,7 +53,7 @@ public class Session implements Serializable {
 
 
     public Token registerCard(CreditCard cardId)
-            throws TokenRegistrationDenied {
+            throws TokenRegistrationDenied, SignUpDenied {
 
         Token token;
         System.out.println("Registering the card");
@@ -128,7 +124,7 @@ public class Session implements Serializable {
         return user;
     }
 
-    public void close() {
+    public void close() throws SignUpDenied {
         user.setCanReadCardId(false);
         user.setCanRegisterToken(false);
         new UserDatabase().updateDatabase(user);

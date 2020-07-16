@@ -2,20 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f6125f3-ef4e-45c3-b9e6-670cce86417d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/exceptions/SignUpDenied.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/primitives/EmptySignUpDataTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Database.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Database.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/gui/SignFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/gui/SignFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exceptions/LoginException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/LoginException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exceptions/TokenNotRegistered.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/TokenNotRegistered.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exceptions/TokenRegistrationDenied.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/TokenRegistrationDenied.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/communication/ClientServerCommunication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/communication/ClientServerCommunication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/primitives/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/primitives/UserDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/UserDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/Session.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/WorkerRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/WorkerRunnable.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -36,6 +44,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="primitives" />
       <recent name="exceptions" />
     </key>
   </component>
@@ -51,7 +60,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="JUnit.EmptySignUpDataTest.handleEmptySignUpData">
     <configuration name="CardIdTest.testPlentyOfCards" type="AndroidJUnit" temporary="true" nameIsGenerated="true">
       <module name="Bank-card-tokenization-master" />
       <extension name="coverage">
@@ -109,7 +118,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CardIdTest.testPlentyOfCards" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="EmptySignUpDataTest.handleEmptySignUpData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Bank-card-tokenization-master" />
       <extension name="coverage">
         <pattern>
@@ -118,8 +127,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="primitives" />
-      <option name="MAIN_CLASS_NAME" value="primitives.CardIdTest" />
-      <option name="METHOD_NAME" value="testPlentyOfCards" />
+      <option name="MAIN_CLASS_NAME" value="primitives.EmptySignUpDataTest" />
+      <option name="METHOD_NAME" value="handleEmptySignUpData" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -127,11 +136,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.EmptySignUpDataTest.handleEmptySignUpData" />
         <item itemvalue="Application.Client" />
         <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.CardIdTest" />
         <item itemvalue="Android JUnit.CardIdTest.testPlentyOfCards" />
-        <item itemvalue="JUnit.CardIdTest.testPlentyOfCards" />
       </list>
     </recent_temporary>
   </component>
