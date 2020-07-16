@@ -155,6 +155,16 @@ public class SignFrame extends javax.swing.JFrame {
     }
 
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {
+        if(txtUsername.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Empty username", "Error sign up",JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        if( new String(txtPassword.getPassword()).isEmpty()){
+            JOptionPane.showMessageDialog(null,"Empty password", "Error sign up",JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
         String name = txtUsername.getText();
         String password = new String(txtPassword.getPassword());
 

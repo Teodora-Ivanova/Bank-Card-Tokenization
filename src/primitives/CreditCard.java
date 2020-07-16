@@ -83,7 +83,7 @@ public class CreditCard implements Comparable<CreditCard>, Serializable {
         for (int i = cardId.length() - 4; i < length; i++) {
             token.setDigitAt(i, cardIdArr[i]);
         }
-        
+
         if (token.sum() % 10 == 0) {
             do {
                 randomIndex = 1 + r.nextInt(12);
