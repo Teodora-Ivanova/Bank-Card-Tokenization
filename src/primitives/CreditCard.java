@@ -6,19 +6,17 @@ import java.io.Serializable;
 import java.util.Random;
 
 public class CreditCard implements Comparable<CreditCard>, Serializable {
-
     private String cardId;
-
 
     public CreditCard(String cardId) throws InvalidCreditCardNumber {
         setCardId(cardId);
     }
 
-    private boolean validFirst(String number) {
+    private boolean isFirstNumberValid(String number) {
         return number.matches("^[3-6].*$");
     }
 
-    private int[] parse(String cardId) {
+    private int[] convertStringToNumerical(String cardId) {
         char[] cardIdArr = cardId.toCharArray();
         int[] result = new int[cardIdArr.length];
 
@@ -30,7 +28,7 @@ public class CreditCard implements Comparable<CreditCard>, Serializable {
     }
 
     private int sumDoubledDigits(String cardId) {
-        int[] cardIdArr = parse(cardId);
+        int[] cardIdArr = convertStringToNumerical(cardId);
         int result = 0;
         int doubled;
 
@@ -51,7 +49,7 @@ public class CreditCard implements Comparable<CreditCard>, Serializable {
 
     private void setCardId(String cardId)
             throws InvalidCreditCardNumber {
-        if (validFirst(cardId)) {
+        if (isFirstNumberValid(cardId)) {
             if (isLuhnValid(cardId)) {
                 this.cardId = cardId;
             } else {
@@ -65,7 +63,7 @@ public class CreditCard implements Comparable<CreditCard>, Serializable {
 
     public Token tokenize() {
         final int length = cardId.length();
-        int[] cardIdArr = parse(cardId);
+        int[] cardIdArr = convertStringToNumerical(cardId);
         Token token = new Token(length);
         Random r = new Random();
         int digit, randomIndex, value;
@@ -73,7 +71,7 @@ public class CreditCard implements Comparable<CreditCard>, Serializable {
         //tokenize the first digit
         do {
             digit = r.nextInt(10);
-        } while (validFirst(Integer.toString(digit)));
+        } while (isFirstNumberValid(Integer.toString(digit)));
         token.setDigitAt(0, digit);
 
         //tokenize from the 2nd digit to the 12th
