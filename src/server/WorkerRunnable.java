@@ -39,26 +39,22 @@ public class WorkerRunnable implements Runnable {
     @Override
     public void run() {
         System.out.println("Connection Established!");
-        try {
-            while (true) {
-                try {
-                    Message msg = (Message) inputStream.readObject();
-                    System.out.println("Recieved message " + msg);
-                    processAction(msg);
-                } catch (EOFException ex) {
-                    System.out.println("EOF");
-                    break;
-                }
+        while (true) {
+            try {
+                Message msg = (Message) inputStream.readObject();
+                System.out.println("Recieved message " + msg);
+                processAction(msg);
+            } catch (EOFException ex) {
+                System.out.println("EOF");
+                break;
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException ex) {
-            System.out.println("Class not found!");
         }
     }
 
     private void processAction(Message msg)
-            throws IOException {
+            throws Exception {
         String action = msg.getAction();
         Object obj = msg.getObject();
         Token token;
@@ -107,12 +103,14 @@ public class WorkerRunnable implements Runnable {
             sendAck("LoginExc");
         } catch (SignUpDenied signUpDenied) {
             sendAck("EmptyUserInfo");
+        } catch (InvalidUsername invalidUsername) {
+            sendAck("invalidUsername");
         }
 
 
-}
+    }
 
-    private void closeSession() throws SignUpDenied {
+    private void closeSession() throws SignUpDenied, InvalidUsername {
         System.out.println("Closing session");
         session.close();
         System.out.println("Session closed");
@@ -137,7 +135,7 @@ public class WorkerRunnable implements Runnable {
         return card;
     }
 
-    private void userRegisterCard(CreditCard obj) throws TokenRegistrationDenied, SignUpDenied {
+    private void userRegisterCard(CreditCard obj) throws TokenRegistrationDenied, SignUpDenied, InvalidUsername {
         Token token;
         token = session.registerCard(obj);
         sendObject(token);
@@ -148,7 +146,7 @@ public class WorkerRunnable implements Runnable {
         sendAck("Registration successfull");
     }
 
-    private void userSignIn(User obj) throws IncorrectUserPassword, IncorrectUsername, LoginException, SignUpDenied {
+    private void userSignIn(User obj) throws Exception {
         session = new Session(obj);
         sendAck("Sign in success");
         sendSession();

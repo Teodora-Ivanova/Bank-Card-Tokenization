@@ -13,7 +13,7 @@ public class CreditCard implements Comparable<CreditCard>, Serializable {
     }
 
     private boolean isFirstNumberValid(String number) {
-        return number.matches("^[3-6].*$");
+        return number.matches("^[3-6].* $");
     }
 
     private int[] convertStringToNumerical(String cardId) {

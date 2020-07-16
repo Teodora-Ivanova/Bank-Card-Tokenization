@@ -23,7 +23,7 @@ public class Session implements Serializable {
     transient private UserDatabase db = new UserDatabase();
 
     public Session(User userToLog)
-            throws IncorrectUserPassword, IncorrectUsername, LoginException, SignUpDenied {
+            throws IncorrectUserPassword, IncorrectUsername, LoginException, SignUpDenied, InvalidUsername {
         if (userToLog == null) {
             throw new LoginException();
         } else {
@@ -32,7 +32,7 @@ public class Session implements Serializable {
     }
 
     public void logIn(User userToLog)
-            throws IncorrectUserPassword, IncorrectUsername, SignUpDenied {
+            throws IncorrectUserPassword, IncorrectUsername, SignUpDenied, InvalidUsername {
 
         User registredUser = db.getUserByName(userToLog.getUsername());
 
@@ -53,7 +53,7 @@ public class Session implements Serializable {
 
 
     public Token registerCard(CreditCard cardId)
-            throws TokenRegistrationDenied, SignUpDenied {
+            throws TokenRegistrationDenied, SignUpDenied, InvalidUsername {
 
         Token token;
         System.out.println("Registering the card");
@@ -124,7 +124,7 @@ public class Session implements Serializable {
         return user;
     }
 
-    public void close() throws SignUpDenied {
+    public void close() throws SignUpDenied, InvalidUsername {
         user.setCanReadCardId(false);
         user.setCanRegisterToken(false);
         new UserDatabase().updateDatabase(user);

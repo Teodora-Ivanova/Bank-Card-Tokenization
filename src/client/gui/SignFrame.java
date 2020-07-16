@@ -1,6 +1,7 @@
 package client.gui;
 
 import communication.ClientServerCommunication;
+import exceptions.InvalidUsername;
 import exceptions.SignUpDenied;
 import primitives.User;
 import server.Session;
@@ -66,7 +67,7 @@ public class SignFrame extends javax.swing.JFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 try {
                     btnSignInActionPerformed(evt);
-                } catch (SignUpDenied signUpDenied) {
+                } catch (SignUpDenied | InvalidUsername signUpDenied) {
                     signUpDenied.printStackTrace();
                 }
             }
@@ -77,7 +78,7 @@ public class SignFrame extends javax.swing.JFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 try {
                     btnSignUpActionPerformed(evt);
-                } catch (SignUpDenied signUpDenied) {
+                } catch (SignUpDenied | InvalidUsername signUpDenied) {
                     signUpDenied.printStackTrace();
                 }
             }
@@ -147,7 +148,7 @@ public class SignFrame extends javax.swing.JFrame {
     }
 
 
-    private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) throws SignUpDenied {
+    private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) throws SignUpDenied, InvalidUsername {
         String username = txtUsername.getText();
         String password = new String(txtPassword.getPassword());
 
@@ -163,7 +164,7 @@ public class SignFrame extends javax.swing.JFrame {
         }
     }
 
-    private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) throws SignUpDenied {
+    private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) throws SignUpDenied, InvalidUsername {
         if(txtUsername.getText().isEmpty()){
             JOptionPane.showMessageDialog(null,"Empty username", "Error sign up",JOptionPane.ERROR_MESSAGE);
             return;

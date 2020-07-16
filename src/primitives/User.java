@@ -1,5 +1,6 @@
 package primitives;
 
+import exceptions.InvalidUsername;
 import exceptions.SignUpDenied;
 
 import java.io.Serializable;
@@ -30,12 +31,12 @@ public class User implements Serializable {
         return canReadCardId;
     }
 
-    public User(String username, String password) throws SignUpDenied {
+    public User(String username, String password) throws SignUpDenied, InvalidUsername {
         setData(username,password);
 
     }
 
-    private void setData(String username, String password)throws SignUpDenied{
+    private void setData(String username, String password)throws SignUpDenied, InvalidUsername {
         if(username.isEmpty()){
             throw new SignUpDenied();
         }
@@ -44,12 +45,20 @@ public class User implements Serializable {
             throw new SignUpDenied();
 
         }
+            //number.matches("^[3-6].* $");
+        if(!isUsernameRelevant(username)){
+            throw  new InvalidUsername();
+        }
         this.username = username;
         this.password = password;
     }
 
+    private boolean isUsernameRelevant(String username) {
+        return username.matches("^[a-zA-Z0-9]+$");
+    }
 
-    public User(User user) throws SignUpDenied {
+
+    public User(User user) throws SignUpDenied, InvalidUsername {
         this(user.getUsername(), user.getPassword());
         this.tokenMap = user.getTokenMap();
         this.canReadCardId = user.canReadCardId();
