@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f6125f3-ef4e-45c3-b9e6-670cce86417d" name="Default Changelist" comment="">
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/src/primitives/CreditCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/CreditCard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/primitives/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Token.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

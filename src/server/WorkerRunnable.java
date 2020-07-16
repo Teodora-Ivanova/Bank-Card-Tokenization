@@ -63,43 +63,30 @@ public class WorkerRunnable implements Runnable {
         Object obj = msg.getObject();
         Token token;
 
-//        Map<String, Consumer<Session>> map = new HashMap<>();
-        /*TODO: USE JAVA 8 AND A MAP.*/
+
         try {
             switch (action) {
                 case "signIn":
-                    session = new Session((User) obj);
-                    sendAck("Sign in success");
-                    sendSession();
+                    userSignIn((User) obj);
                     break;
                 case "signUp":
-                    db.add((User) obj);
-                    sendAck("Registration successfull");
+                    userSignUp((User) obj);
                     break;
                 case "Register Card":
-                    token = session.registerCard((CreditCard) obj);
-                    sendObject(token);
+                    userRegisterCard((CreditCard) obj);
                     break;
                 case "Get card":
-                    CreditCard card = session.getCardId((Token) obj);
-                    sendAck("Success");
+                    CreditCard card = userGetCard((Token) obj);
                     sendObject(card);
                     break;
                 case "Export Tokens":
-                    session.exportSorted(new TokenComparator(),
-                            new File(session.getUser().getUsername() + "'s_cardsByToken.txt"));
-                    sendAck("Export Completed");
+                    exportTokens();
                     break;
                 case "Export Credit Card":
-                    CardComparator comp = new CardComparator(session.getUser().getTokenMap());
-                    session.exportSorted(comp,
-                            new File(session.getUser().getUsername() + "'s_cardsByCard.txt"));
-                    sendAck("Export Completed");
+                    exportCreditCard();
                     break;
                 case "Close":
-                    System.out.println("Closing session");
-                    session.close();
-                    System.out.println("Session closed");
+                    closeSession();
 
             }
         } catch (NullPointerException ex) {
@@ -125,6 +112,48 @@ public class WorkerRunnable implements Runnable {
 
 }
 
+    private void closeSession() throws SignUpDenied {
+        System.out.println("Closing session");
+        session.close();
+        System.out.println("Session closed");
+    }
+
+    private void exportCreditCard() throws IOException, CardReadingDenied, TokenNotRegistered {
+        CardComparator comp = new CardComparator(session.getUser().getTokenMap());
+        session.exportSorted(comp,
+                new File(session.getUser().getUsername() + "'s_cardsByCard.txt"));
+        sendAck("Export Completed");
+    }
+
+    private void exportTokens() throws IOException, CardReadingDenied, TokenNotRegistered {
+        session.exportSorted(new TokenComparator(),
+                new File(session.getUser().getUsername() + "'s_cardsByToken.txt"));
+        sendAck("Export Completed");
+    }
+
+    private CreditCard userGetCard(Token obj) throws CardReadingDenied, TokenNotRegistered {
+        CreditCard card = session.getCardId(obj);
+        sendAck("Success");
+        return card;
+    }
+
+    private void userRegisterCard(CreditCard obj) throws TokenRegistrationDenied, SignUpDenied {
+        Token token;
+        token = session.registerCard(obj);
+        sendObject(token);
+    }
+
+    private void userSignUp(User obj) throws IOException, DuplicateUserName {
+        db.add(obj);
+        sendAck("Registration successfull");
+    }
+
+    private void userSignIn(User obj) throws IncorrectUserPassword, IncorrectUsername, LoginException, SignUpDenied {
+        session = new Session(obj);
+        sendAck("Sign in success");
+        sendSession();
+    }
+
     private void sendAck(String ack) {
         System.out.println("Sending Ack");
         sendObject(ack);
@@ -138,7 +167,6 @@ public class WorkerRunnable implements Runnable {
     }
 
     private void sendObject(Object obj) {
-        //TODO: dont make new output stream each time!
         try {
             ObjectOutputStream outputStream
                     = new ObjectOutputStream(clientSocket.getOutputStream());

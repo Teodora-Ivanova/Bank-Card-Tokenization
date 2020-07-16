@@ -47,6 +47,7 @@ public class CreditCard implements Comparable<CreditCard>, Serializable {
         return (sumDoubledDigits(cardId) % 10) == 0;
     }
 
+
     private void setCardId(String cardId)
             throws InvalidCreditCardNumber {
         if (isFirstNumberValid(cardId)) {
