@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f6125f3-ef4e-45c3-b9e6-670cce86417d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/exceptions/SignUpDenied.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/primitives/EmptySignUpDataTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/gui/SignFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/gui/SignFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/communication/ClientServerCommunication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/communication/ClientServerCommunication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/UserDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/UserDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/WorkerRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/WorkerRunnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/primitives/CreditCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/CreditCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/primitives/Token.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/Token.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

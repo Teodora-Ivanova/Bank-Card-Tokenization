@@ -65,17 +65,19 @@ public class CreditCard implements Comparable<CreditCard>, Serializable {
         final int length = cardId.length();
         int[] cardIdArr = convertStringToNumerical(cardId);
         Token token = new Token(length);
-        Random r = new Random();
-        int digit, randomIndex, value;
+        Random rand = new Random();
+        int digit;
+        int randomIndex;
+        int value;
 
         do {
-            digit = r.nextInt(10);
+            digit = rand.nextInt(10);
         } while (isFirstNumberValid(Integer.toString(digit)));
         token.setDigitAt(0, digit);
 
         for (int i = 1; i < length - 4; i++) {
             do {
-                digit = r.nextInt(10);
+                digit = rand.nextInt(10);
             } while (digit == cardIdArr[i]);
             token.setDigitAt(i, digit);
         }
@@ -86,7 +88,7 @@ public class CreditCard implements Comparable<CreditCard>, Serializable {
 
         if (token.sum() % 10 == 0) {
             do {
-                randomIndex = 1 + r.nextInt(12);
+                randomIndex = 1 + rand.nextInt(12);
             } while ((value = token.getDigitAt(randomIndex)) == 9);
 
             token.setDigitAt(randomIndex, ++value);
