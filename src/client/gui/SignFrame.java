@@ -2,6 +2,7 @@ package client.gui;
 
 import communication.ClientServerCommunication;
 import exceptions.IncorrectUserPassword;
+import exceptions.InvalidPassword;
 import exceptions.InvalidUsername;
 import exceptions.SignUpDenied;
 import primitives.User;
@@ -68,7 +69,7 @@ public class SignFrame extends javax.swing.JFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 try {
                     btnSignInActionPerformed(evt);
-                } catch (SignUpDenied | InvalidUsername | IncorrectUserPassword signUpDenied) {
+                } catch (SignUpDenied | InvalidUsername | InvalidPassword signUpDenied) {
                     signUpDenied.printStackTrace();
                 }
             }
@@ -151,7 +152,7 @@ public class SignFrame extends javax.swing.JFrame {
     }
 
 
-    private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) throws SignUpDenied, InvalidUsername, IncorrectUserPassword {
+    private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) throws SignUpDenied, InvalidUsername, InvalidPassword {
         String username = txtUsername.getText();
         String password = new String(txtPassword.getPassword());
 
@@ -168,15 +169,13 @@ public class SignFrame extends javax.swing.JFrame {
     }
 
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) throws Exception {
-        if(txtUsername.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Empty username", "Error sign up",JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+        if (warnIfUsernameIsEmpty(txtUsername.getText())) return;
 
-        if( new String(txtPassword.getPassword()).isEmpty()){
-            JOptionPane.showMessageDialog(null,"Empty password", "Error sign up",JOptionPane.ERROR_MESSAGE);
-            return;
-        }
+        if (warnIfPasswordIsEmpty(new String(txtPassword.getPassword()))) return;
+
+        if (warnIfUsernameNotRelevant(txtUsername.getText())) return;
+
+        if (warnIfPasswordNotRelevant(new String(txtPassword.getPassword()))) return;
 
         String name = txtUsername.getText();
         String password = new String(txtPassword.getPassword());
@@ -185,6 +184,44 @@ public class SignFrame extends javax.swing.JFrame {
         commChannel.sendMessage(newUser, "signUp");
         commChannel.handleAck((String) commChannel.receiveObject(), null);
     }
+
+    private boolean warnIfUsernameIsEmpty(String username) {
+        if(username.isEmpty()){
+            JOptionPane.showMessageDialog(null,"Empty username", "Error sign up",JOptionPane.ERROR_MESSAGE);
+            return true;
+        }
+        return false;
+    }
+
+    private boolean warnIfPasswordIsEmpty(String password) {
+        if( password.isEmpty()){
+            JOptionPane.showMessageDialog(null,"Empty password", "Error sign up",JOptionPane.ERROR_MESSAGE);
+            return true;
+        }
+        return false;
+    }
+    
+    private boolean warnIfUsernameNotRelevant(String username) {
+        if(!isUsernameRelevant(username)){
+            JOptionPane.showMessageDialog(null,"Username can contain only letters and digits", "Error sign up",JOptionPane.ERROR_MESSAGE);
+            return true;
+        }
+        return false;
+    }
+
+    private boolean warnIfPasswordNotRelevant(String password) {
+        if(!isPasswordRelevant(password)){
+            JOptionPane.showMessageDialog(null,"Password can contain only letters and digits", "Error sign up",JOptionPane.ERROR_MESSAGE);
+            return true;
+        }
+        return false;
+    }
+
+
+    private boolean isUsernameRelevant(String username) {
+        return username.matches("^[a-zA-Z0-9]+$");
+    }
+    private boolean isPasswordRelevant(String password) { return password.matches("^[a-zA-Z0-9]+$"); }
 
     public static void main(String args[]) {
         try {
