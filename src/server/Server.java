@@ -6,12 +6,8 @@ import java.io.IOException;
 
 public class Server implements Runnable {
 
-
     protected int serverPort = 8080;
-
-
     protected ServerSocket serverSocket = null;
-
     protected boolean isStopped = false;
 
     public Server(int port) {

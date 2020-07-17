@@ -103,6 +103,16 @@ public class ClientServerCommunication {
                         "Error",
                         JOptionPane.ERROR_MESSAGE);
                 break;
+            case  "UsernameNotRelevant":
+                showMessage("Username can contain only letters and digits",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                break;
+            case  "PasswordNotRelevant":
+                showMessage("Password can contain only letters and digits",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                break;
             case "LoginExc":
                 showMessage("Fatal login exception occurred.\nTerminating",
                         "Error",

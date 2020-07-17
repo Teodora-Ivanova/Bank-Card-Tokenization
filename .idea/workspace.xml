@@ -2,18 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f6125f3-ef4e-45c3-b9e6-670cce86417d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/exceptions/InvalidPassword.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/primitives/InvalidPasswordTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/gui/CardRegFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/gui/CardRegFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client/gui/SignFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/gui/SignFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exceptions/InvalidFirstNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/InvalidFirstNumber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/communication/ClientServerCommunication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/communication/ClientServerCommunication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exceptions/InvalidPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/InvalidPassword.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/exceptions/InvalidUsername.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/InvalidUsername.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/CreditCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/CreditCard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/primitives/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/primitives/UserDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/UserDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/Session.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/WorkerRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/WorkerRunnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/primitives/InvalidPasswordTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/primitives/InvalidPasswordTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/primitives/InvalidUsernameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/primitives/InvalidUsernameTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,24 +66,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.InvalidPasswordTest.handleEmptySignUpData">
-    <configuration name="EmptySignUpDataTest.handleEmptySignUpData" type="AndroidJUnit" temporary="true" nameIsGenerated="true">
-      <module name="Bank-card-tokenization-master" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="primitives.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="primitives" />
-      <option name="MAIN_CLASS_NAME" value="primitives.EmptySignUpDataTest" />
-      <option name="METHOD_NAME" value="handleEmptySignUpData" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="InvalidPasswordTest.handleEmptySignUpData" type="AndroidJUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Android JUnit.InvalidPasswordTest.handleInvalidPassword">
+    <configuration name="InvalidPasswordTest.handleInvalidPassword" type="AndroidJUnit" temporary="true" nameIsGenerated="true">
       <module name="Bank-card-tokenization-master" />
       <extension name="coverage">
         <pattern>
@@ -93,8 +77,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="primitives" />
       <option name="MAIN_CLASS_NAME" value="primitives.InvalidPasswordTest" />
-      <option name="METHOD_NAME" value="handleEmptySignUpData" />
+      <option name="METHOD_NAME" value="handleInvalidPassword" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client.Client" />
+      <module name="Bank-card-tokenization-master" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -128,7 +125,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InvalidUsernameTest.handleEmptySignUpData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="InvalidUsernameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Bank-card-tokenization-master" />
       <extension name="coverage">
         <pattern>
@@ -138,19 +135,18 @@
       </extension>
       <option name="PACKAGE_NAME" value="primitives" />
       <option name="MAIN_CLASS_NAME" value="primitives.InvalidUsernameTest" />
-      <option name="METHOD_NAME" value="handleEmptySignUpData" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Android JUnit.InvalidPasswordTest.handleInvalidPassword" />
         <item itemvalue="JUnit.InvalidPasswordTest.handleEmptySignUpData" />
+        <item itemvalue="JUnit.InvalidUsernameTest" />
         <item itemvalue="Application.Server" />
-        <item itemvalue="Android JUnit.InvalidPasswordTest.handleEmptySignUpData" />
-        <item itemvalue="JUnit.InvalidUsernameTest.handleEmptySignUpData" />
-        <item itemvalue="Android JUnit.EmptySignUpDataTest.handleEmptySignUpData" />
+        <item itemvalue="Application.Client" />
       </list>
     </recent_temporary>
   </component>
@@ -170,6 +166,7 @@
       <workItem from="1594111153181" duration="74000" />
       <workItem from="1594743366902" duration="9308000" />
       <workItem from="1594889896568" duration="1620000" />
+      <workItem from="1594979204229" duration="3272000" />
     </task>
     <servers />
   </component>

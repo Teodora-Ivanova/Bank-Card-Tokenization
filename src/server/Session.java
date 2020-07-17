@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
+
 import primitives.Token;
 
 public class Session implements Serializable {
@@ -23,7 +24,7 @@ public class Session implements Serializable {
     transient private UserDatabase db = new UserDatabase();
 
     public Session(User userToLog)
-            throws IncorrectUserPassword, IncorrectUsername, LoginException, SignUpDenied, InvalidUsername {
+            throws IncorrectUserPassword, IncorrectUsername, LoginException, SignUpDenied, InvalidUsername, InvalidPassword {
         if (userToLog == null) {
             throw new LoginException();
         } else {
@@ -32,33 +33,28 @@ public class Session implements Serializable {
     }
 
     public void logIn(User userToLog)
-            throws IncorrectUserPassword, IncorrectUsername, SignUpDenied, InvalidUsername {
+            throws IncorrectUserPassword, IncorrectUsername, SignUpDenied, InvalidUsername, InvalidPassword {
 
-        User registredUser = db.getUserByName(userToLog.getUsername());
+        User registeredUser = db.getUserByName(userToLog.getUsername());
 
-        //is the entered password correct
-        if (registredUser.getPassword()
+        if (registeredUser.getPassword()
                 .equals(userToLog.getPassword())) {
 
-            this.user = registredUser;
+            this.user = registeredUser;
 
-            //set the privileges of the user.
             this.user.setCanReadCardId(true);
             this.user.setCanRegisterToken(true);
-
         } else {
             throw new IncorrectUserPassword();
         }
     }
 
-
     public Token registerCard(CreditCard cardId)
-            throws TokenRegistrationDenied, SignUpDenied, InvalidUsername, IncorrectUserPassword {
+            throws TokenRegistrationDenied, SignUpDenied, InvalidUsername, InvalidPassword {
 
         Token token;
         System.out.println("Registering the card");
         if (user.canRegisterToken()) {
-
             do {
                 token = cardId.tokenize();
             } while (!isUnique(token));
@@ -94,7 +90,6 @@ public class Session implements Serializable {
         }
 
         bw.close();
-
     }
 
     public CreditCard getCardId(Token token)
@@ -124,7 +119,7 @@ public class Session implements Serializable {
         return user;
     }
 
-    public void close() throws SignUpDenied, InvalidUsername, IncorrectUserPassword {
+    public void close() throws SignUpDenied, InvalidUsername, InvalidPassword {
         user.setCanReadCardId(false);
         user.setCanRegisterToken(false);
         new UserDatabase().updateDatabase(user);
@@ -146,5 +141,4 @@ public class Session implements Serializable {
     public String toString() {
         return "Session{" + "user=" + user + '}';
     }
-
 }

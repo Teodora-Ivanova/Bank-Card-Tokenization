@@ -1,6 +1,5 @@
 package primitives;
 
-import exceptions.IncorrectUserPassword;
 import exceptions.InvalidPassword;
 import exceptions.InvalidUsername;
 import exceptions.SignUpDenied;
@@ -21,6 +20,7 @@ public class User implements Serializable {
     public void setCanRegisterToken(boolean canRegisterToken) {
         this.canRegisterToken = canRegisterToken;
     }
+
     public void setCanReadCardId(boolean canReadCardId) {
         this.canReadCardId = canReadCardId;
     }
@@ -33,26 +33,27 @@ public class User implements Serializable {
         return canReadCardId;
     }
 
-    public User(String username, String password) throws SignUpDenied, InvalidUsername, IncorrectUserPassword {
-        setData(username,password);
+    public User(String username, String password) throws SignUpDenied, InvalidUsername, InvalidPassword {
+        setData(username, password);
 
     }
 
-    private void setData(String username, String password) throws SignUpDenied, InvalidUsername, IncorrectUserPassword {
-        if(username.isEmpty()){
+    private void setData(String username, String password) throws SignUpDenied, InvalidUsername, InvalidPassword {
+        if (username.isEmpty()) {
             throw new SignUpDenied();
         }
 
-        if( password.isEmpty()){
+        if (password.isEmpty()) {
             throw new SignUpDenied();
 
         }
-        if(!isUsernameRelevant(username)){
-            throw  new InvalidUsername();
+        if (!isUsernameRelevant(username)) {
+            throw new InvalidUsername();
         }
-        if(!isPasswordRelevant(password)){
-            throw  new IncorrectUserPassword();
+        if (!isPasswordRelevant(password)) {
+            throw new InvalidPassword();
         }
+
         this.username = username;
         this.password = password;
     }
@@ -60,12 +61,13 @@ public class User implements Serializable {
     private boolean isUsernameRelevant(String username) {
         return username.matches("^[a-zA-Z0-9]+$");
     }
+
     private boolean isPasswordRelevant(String password) {
-        return username.matches("^[a-zA-Z0-9]+$");
+        return password.matches("^[a-zA-Z0-9]+$");
     }
 
 
-    public User(User user) throws SignUpDenied, InvalidUsername, IncorrectUserPassword {
+    public User(User user) throws SignUpDenied, InvalidUsername, InvalidPassword {
         this(user.getUsername(), user.getPassword());
         this.tokenMap = user.getTokenMap();
         this.canReadCardId = user.canReadCardId();
@@ -108,8 +110,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "User:" + username + ", " + password + ", map="
+        return "User: " + username + ", " + password + ", map= "
                 + tokenMap + " read: " + canReadCardId + "write: " + canRegisterToken;
     }
-
 }

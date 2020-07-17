@@ -8,8 +8,8 @@ public class InvalidPasswordTest {
     }
 
     @Test
-    public void handleEmptySignUpData() throws Exception {
-        User user1 = new User("Mimi","da()");//only letters and numbers allowed in password
-
+    public void handleInvalidPassword() throws Exception {
+        User user1 = new User("Gosho","goshani");
+        User user2 = new User("Mimi","da");
     }
 }

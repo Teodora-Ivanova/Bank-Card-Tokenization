@@ -105,14 +105,14 @@ public class WorkerRunnable implements Runnable {
             sendAck("EmptyUserInfo");
         } catch (InvalidUsername invalidUsername) {
             sendAck("invalidUsername");
-        }catch (InvalidPassword invalidPassword) {
+        } catch (InvalidPassword invalidPassword) {
             sendAck("invalidPassword");
         }
 
 
     }
 
-    private void closeSession() throws SignUpDenied, InvalidUsername, IncorrectUserPassword {
+    private void closeSession() throws SignUpDenied, InvalidUsername, InvalidPassword {
         System.out.println("Closing session");
         session.close();
         System.out.println("Session closed");
@@ -176,5 +176,4 @@ public class WorkerRunnable implements Runnable {
             System.out.println(ex);
         }
     }
-
 }

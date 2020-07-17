@@ -8,8 +8,8 @@ public class InvalidUsernameTest {
     }
 
     @Test
-    public void handleEmptySignUpData() throws Exception {
-        User user1 = new User("Mimi123--","12345");//only letters and numbers allowed in username
+    public void handleInvalidUsername() throws Exception {
+        User user1 = new User("Mimi123","12345");//only letters and numbers allowed in username
 
     }
 }

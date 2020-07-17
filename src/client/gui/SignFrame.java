@@ -200,7 +200,7 @@ public class SignFrame extends javax.swing.JFrame {
         }
         return false;
     }
-    
+
     private boolean warnIfUsernameNotRelevant(String username) {
         if(!isUsernameRelevant(username)){
             JOptionPane.showMessageDialog(null,"Username can contain only letters and digits", "Error sign up",JOptionPane.ERROR_MESSAGE);
