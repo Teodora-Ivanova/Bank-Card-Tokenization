@@ -1,6 +1,6 @@
 package exceptions;
 
-public class InvalidPassword extends Exception{
+public class InvalidPassword extends Exception {
     public InvalidPassword() {
     }
 
