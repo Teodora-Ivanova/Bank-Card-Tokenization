@@ -12,7 +12,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-//TODO: CONSIDER IT TO BE A SINGLETON
 public class UserDatabase implements Serializable {
 
     private final File xmlFile = new File("Database.xml");
@@ -23,7 +22,7 @@ public class UserDatabase implements Serializable {
         try {
             xstream.toXML(users, new FileWriter(xmlFile));
         } catch (IOException ex) {
-            System.out.println("Error while seriliazing!");
+            System.out.println("Error while serializing!");
             System.exit(1);
         }
     }
@@ -34,7 +33,6 @@ public class UserDatabase implements Serializable {
 
 
     public UserDatabase() {
-
         xstream.alias("User", User.class);
         xstream.alias("Token", Token.class);
         xstream.alias("CardId", CreditCard.class);
@@ -45,7 +43,6 @@ public class UserDatabase implements Serializable {
     }
 
     public void add(User userToAdd) throws IOException, DuplicateUserName {
-
         users = deserialize();
 
         for (User regUser : users) {
@@ -53,14 +50,13 @@ public class UserDatabase implements Serializable {
                 throw new DuplicateUserName();
             }
         }
-        
 
         users.add(userToAdd);
         serialize();
     }
 
 
-    public User getUserByName(String name) throws IncorrectUsername, SignUpDenied, InvalidUsername, IncorrectUserPassword {
+    public User getUserByName(String name) throws IncorrectUsername, SignUpDenied, InvalidUsername, InvalidPassword {
         users = deserialize();
         for (User user : users) {
             if (user.getUsername().equals(name)) {
@@ -70,10 +66,9 @@ public class UserDatabase implements Serializable {
         throw new IncorrectUsername();
     }
 
-    public void updateDatabase(User user) throws SignUpDenied, InvalidUsername, IncorrectUserPassword {
+    public void updateDatabase(User user) throws SignUpDenied, InvalidUsername, InvalidPassword {
         users = deserialize();
-        
-        // find the desired user
+
         for (int i = 0; i < users.size(); i++) {
             if (users.get(i).equals(user)) {
                 users.set(i, new User(user));
