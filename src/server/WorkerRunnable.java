@@ -29,7 +29,7 @@ public class WorkerRunnable implements Runnable {
         try {
             inputStream = new ObjectInputStream(clientSocket.getInputStream());
         } catch (IOException ex) {
-            System.out.println("A critical error occuried while"
+            System.out.println("A critical error occurred while"
                     + " trying to open input stream.\nTerminating.");
             System.exit(1);
         }
@@ -42,7 +42,7 @@ public class WorkerRunnable implements Runnable {
         while (true) {
             try {
                 Message msg = (Message) inputStream.readObject();
-                System.out.println("Recieved message " + msg);
+                System.out.println("Received message " + msg);
                 processAction(msg);
             } catch (EOFException ex) {
                 System.out.println("EOF");

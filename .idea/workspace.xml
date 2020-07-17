@@ -3,17 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2f6125f3-ef4e-45c3-b9e6-670cce86417d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/gui/SignFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/gui/SignFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/communication/ClientServerCommunication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/communication/ClientServerCommunication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exceptions/InvalidPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/InvalidPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exceptions/InvalidUsername.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exceptions/InvalidUsername.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/primitives/UserDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/primitives/UserDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/Session.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server/WorkerRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/WorkerRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/primitives/InvalidPasswordTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/primitives/InvalidPasswordTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/primitives/InvalidUsernameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/primitives/InvalidUsernameTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +56,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Android JUnit.InvalidPasswordTest.handleInvalidPassword">
+  <component name="RunManager" selected="Application.Client">
     <configuration name="InvalidPasswordTest.handleInvalidPassword" type="AndroidJUnit" temporary="true" nameIsGenerated="true">
       <module name="Bank-card-tokenization-master" />
       <extension name="coverage">
@@ -142,11 +132,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Client" />
+        <item itemvalue="Application.Server" />
         <item itemvalue="Android JUnit.InvalidPasswordTest.handleInvalidPassword" />
         <item itemvalue="JUnit.InvalidPasswordTest.handleEmptySignUpData" />
         <item itemvalue="JUnit.InvalidUsernameTest" />
-        <item itemvalue="Application.Server" />
-        <item itemvalue="Application.Client" />
       </list>
     </recent_temporary>
   </component>
@@ -166,7 +156,7 @@
       <workItem from="1594111153181" duration="74000" />
       <workItem from="1594743366902" duration="9308000" />
       <workItem from="1594889896568" duration="1620000" />
-      <workItem from="1594979204229" duration="3272000" />
+      <workItem from="1594979204229" duration="5309000" />
     </task>
     <servers />
   </component>
